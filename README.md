@@ -23,3 +23,8 @@ The repository is structured into various directories, each serving a distinct p
   - Estimation of the Latent Dirichlet Allocation (LDA) topic model and visualization of the estimated topics.
   - Performing Vector Autoregression (VAR) and Principal Component Analysis (PCA) to explore the principal components and dynamic relationships in the data.
   - An out-of-sample forecasting experiment aimed at predicting stock market direction.
+- **[finance data](https://github.com/MashenkaOkuneva/Salmon_Market_News/tree/master/finance%20data)**: This directory contains scripts that process and analyse financial data related to the study. It includes:
+  - Calculation and visualisation of investor reactions: [Investors_reaction notebook](https://github.com/MashenkaOkuneva/Salmon_Market_News/blob/master/finance%20data/Investors_reaction.ipynb).
+  - Assignment of dates to articles based on their potential impact on stock markets, rather than publication dates: [daily_articles notebook](https://github.com/MashenkaOkuneva/Salmon_Market_News/blob/master/finance%20data/daily_articles.ipynb).
+  - Combining financial data with sentiment scores, estimated topics, and extracted components for PCA and VAR analyses: ["Combine the datasets for VAR analysis" notebook](https://github.com/MashenkaOkuneva/Salmon_Market_News/blob/master/finance%20data/Combine%20the%20datasets%20for%20VAR%20analysis.ipynb).
+  - Preparation of all the data necessary for the out-of-sample forecasting exercise: [Data for forecasting notebook](https://github.com/MashenkaOkuneva/Salmon_Market_News/blob/master/finance%20data/Data%20for%20forecasting.ipynb).
