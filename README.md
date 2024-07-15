@@ -29,3 +29,27 @@ The repository is structured into various directories, each serving a distinct p
   - Combining financial data with sentiment scores, estimated topics, and extracted components for PCA and VAR analyses: ["Combine the datasets for VAR analysis" notebook](https://github.com/MashenkaOkuneva/Salmon_Market_News/blob/master/finance%20data/Combine%20the%20datasets%20for%20VAR%20analysis.ipynb).
   - Preparation of all the data necessary for the out-of-sample forecasting exercise: [Data for forecasting notebook](https://github.com/MashenkaOkuneva/Salmon_Market_News/blob/master/finance%20data/Data%20for%20forecasting.ipynb).
 - **[robustness_check](https://github.com/MashenkaOkuneva/Salmon_Market_News/tree/master/robustness_check)**: Includes the ['Combine datasets' notebook](https://github.com/MashenkaOkuneva/Salmon_Market_News/blob/master/robustness_check/Combine%20datasets.ipynb) that prepares the dataset for the robustness check, where we run a VAR model featuring three variables: components based on topics multiplied with extended sentiment, the log return of the SPI, and the log return of the Oslo Stock Exchange (OSE).
+
+## Project Environment Setup
+
+### Python Versions and Environment Setup
+This project uses three separate Python environments to accommodate different requirements: two Python 3 environments—one with GPU support and one without—and a Python 2 environment.
+
+- **Python 2 Environment**: For notebooks that require Python 2 (`LDA.ipynb`, `Collocations.ipynb`, `Cross-validation.ipynb`, `LDA_forecasting.ipynb`), set up your environment using the `py2_env.yml` file available in this repository.
+- **Python 3 Environment (GPU support)**: This environment can be set up using the `py3_env_gpu.yml` file and is used for the estimation of word embeddings in the `Word_embeddings.ipynb` notebook.
+- **Python 3 Environment (No GPU support)**: This environment can be set up using the `py3_env.yml` file and is used for all other notebooks.
+
+### System Requirements
+The code was run on a server equipped with the following specifications for optimal performance:
+- **CPU**: 8-core 3.7 GHz AMD Ryzen 7 2700X
+- **GPU**: NVIDIA GeForce RTX 2080 Ti
+- **Memory**: 64 GB RAM
+- **Operating System**: Windows Server 2022 Standard
+
+## Usage and Citation
+Feel free to use the code provided in this repository for your research or projects. If you utilize this code, please cite the paper: Knoppe C., Okuneva M., & Zitti M. (2024). Salmon stock returns around market news.
+
+## Contact
+If you have any questions about this repository or the related research, please feel free to contact Clemens Knoppe [knoppe@economics.uni-kiel.de](mailto:knoppe@economics.uni-kiel.de), Mariia Okuneva [mokuneva@stat-econ.uni-kiel.de](mailto:mokuneva@stat-econ.uni-kiel.de), or Mikaella Zitti [mikaella.zitti@nmbu.no](mailto:mikaella.zitti@nmbu.no).
+
+
