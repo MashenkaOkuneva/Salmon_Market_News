@@ -18,7 +18,7 @@ n_topics = np.linspace(10, 201, 20)
 plt.figure(figsize=(8,4))
 # perplexity over number of topics
 plt.plot(n_topics, data[:,0], label='perplexity')
-plt.xlabel('Number of Topics', fontsize=14)
+plt.xlabel('NUMBER OF TOPICS', fontsize=14)
 # dashed vertical line at x=100
 plt.axvline(x=100, color='k', linestyle='--')
 # ticklabels in fontsize 12
