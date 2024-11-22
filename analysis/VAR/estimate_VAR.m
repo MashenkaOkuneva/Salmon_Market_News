@@ -32,6 +32,9 @@ addpath(genpath('VAR-Toolbox/v3dot0/'))
 
 % Run the function:
 
+% topics & log-returns 
+[varmod_topics, varopt_topics, topics_estimate, topics_betas, topics_aic] = VARestimate(daily_topics_returns, explan_vars_topics, dependent, 1);
+
 % topics*sentiment & log-returns (use this for any sentiment - LM or
 % extended - and for any sample - all articles or our firms +
 % competitors)
@@ -50,27 +53,30 @@ addpath(genpath('VAR-Toolbox/v3dot0/'))
 [varmod_topics_sent_comp, varopt_topics_sent_comp, topics_sent_estimate_comp, topics_sent_betas_comp, topics_sent_aic_comp] = VARestimate_ose(daily_topics_comp, explan_vars_topics_sent_comp, dependent_log, 4);
 %% IDENTIFICATION WITH ZERO SHORT-RUN RESTRICTIONS (DAILY) for ALL topics:
 
+% topics & log-returns
+[irr_topics_zeros, VAR_estimate_topics_zeros, figure_topics_short, lower_irr_topics, upper_irr_topics, irr_topics_mean, var_opts_topics] = VARidentzeroshortrunrest(daily_topics_returns, explan_vars_topics, varopt_topics, varmod_topics, 1, 0, 1, '/daily_all_topics');
+
 % topics*sentiment & log-returns (LM sentiment, all articles)
 [irr_topics_sent_zeros, VAR_estimate_topics_sent_zeros, figure_topics_sent_short, lower_irr_topics_sent, upper_irr_topics_sent, irr_topics_sent_mean, var_opts_topics_sent, ses_topics_sent] = VARidentzeroshortrunrest(daily_topics_returns, explan_vars_topics_sent, varopt_topics_sent, varmod_topics_sent, 0, 0, 0, '/daily_all_LM');
 
 % topics*sentiment & log-returns (extended sentiment, all articles)
-[irr_topics_sent_zeros, VAR_estimate_topics_sent_zeros, figure_topics_sent_short, lower_irr_topics_sent, upper_irr_topics_sent, irr_topics_sent_mean, var_opts_topics_sent, ses_topics_sent] = VARidentzeroshortrunrest(daily_topics_returns, explan_vars_topics_sent, varopt_topics_sent, varmod_topics_sent, 0, 0, 0, '/daily_all_our_sentiment_new');
+[irr_topics_sent_zeros, VAR_estimate_topics_sent_zeros, figure_topics_sent_short, lower_irr_topics_sent, upper_irr_topics_sent, irr_topics_sent_mean, var_opts_topics_sent, ses_topics_sent] = VARidentzeroshortrunrest(daily_topics_returns, explan_vars_topics_sent, varopt_topics_sent, varmod_topics_sent, 0, 0, 0, '/daily_all_our_sentiment');
 
 % topics*sentiment & log-returns (extended sentiment, articles about our firms and competitors)
-[irr_topics_sent_zeros, VAR_estimate_topics_sent_zeros, figure_topics_sent_short, lower_irr_topics_sent, upper_irr_topics_sent, irr_topics_sent_mean, var_opts_topics_sent, ses_topics_sent] = VARidentzeroshortrunrest(daily_topics_returns, explan_vars_topics_sent, varopt_topics_sent, varmod_topics_sent, 0, 0, 0, '/daily_oursentiment_comp_firms_new');
+[irr_topics_sent_zeros, VAR_estimate_topics_sent_zeros, figure_topics_sent_short, lower_irr_topics_sent, upper_irr_topics_sent, irr_topics_sent_mean, var_opts_topics_sent, ses_topics_sent] = VARidentzeroshortrunrest(daily_topics_returns, explan_vars_topics_sent, varopt_topics_sent, varmod_topics_sent, 0, 0, 0, '/daily_oursentiment_comp_firms');
 %% IDENTIFICATION WITH ZERO SHORT-RUN RESTRICTIONS (DAILY) for PCA results:
 
 % components based on topics & absolute returns:
-[irr_topics_zeros_comp, VAR_estimate_topics_zeros_comp, figure_topics_short_comp, lower_irr_topics_comp, upper_irr_topics_comp, irr_topics_mean_comp, var_opts_topics_comp] = VARidentzeroshortrunrest(daily_topics_comp_absrets, explan_vars_topics_comp, varopt_topics_comp, varmod_topics_comp, 2, 0, 2,'/daily_all_topics_PCA_new');
+[irr_topics_zeros_comp, VAR_estimate_topics_zeros_comp, figure_topics_short_comp, lower_irr_topics_comp, upper_irr_topics_comp, irr_topics_mean_comp, var_opts_topics_comp] = VARidentzeroshortrunrest(daily_topics_comp_absrets, explan_vars_topics_comp, varopt_topics_comp, varmod_topics_comp, 2, 0, 2,'/daily_all_topics_PCA');
 
 % component based on topics * LM sentiment & log-returns:
-[irr_topics_sent_zeros_comp, VAR_estimate_topics_sent_zeros_comp, figure_topics_sent_short_comp, lower_irr_topics_sent_comp, upper_irr_topics_sent_comp, irr_topics_sent_mean_comp, var_opts_topics_sent_comp] = VARidentzeroshortrunrest(daily_topics_comp, explan_vars_topics_sent_comp, varopt_topics_sent_comp, varmod_topics_sent_comp, 3, 0, 3,'/daily_all_topics_sent_PCA_new');
+[irr_topics_sent_zeros_comp, VAR_estimate_topics_sent_zeros_comp, figure_topics_sent_short_comp, lower_irr_topics_sent_comp, upper_irr_topics_sent_comp, irr_topics_sent_mean_comp, var_opts_topics_sent_comp] = VARidentzeroshortrunrest(daily_topics_comp, explan_vars_topics_sent_comp, varopt_topics_sent_comp, varmod_topics_sent_comp, 3, 0, 3,'/daily_all_topics_sent_PCA');
 
 % components based on topics * extended sentiment & log-returns:
-[irr_topics_sent_zeros_comp, VAR_estimate_topics_sent_zeros_comp, figure_topics_sent_short_comp, lower_irr_topics_sent_comp, upper_irr_topics_sent_comp, irr_topics_sent_mean_comp, var_opts_topics_sent_comp] = VARidentzeroshortrunrest(daily_topics_comp, explan_vars_topics_sent_comp, varopt_topics_sent_comp, varmod_topics_sent_comp, 4, 0, 4,'/daily_PCA_oursentiment_new');
+[irr_topics_sent_zeros_comp, VAR_estimate_topics_sent_zeros_comp, figure_topics_sent_short_comp, lower_irr_topics_sent_comp, upper_irr_topics_sent_comp, irr_topics_sent_mean_comp, var_opts_topics_sent_comp] = VARidentzeroshortrunrest(daily_topics_comp, explan_vars_topics_sent_comp, varopt_topics_sent_comp, varmod_topics_sent_comp, 4, 0, 4,'/daily_PCA_oursentiment');
 
 % components based on topics * extended sentiment & log-returns & log-returns of ose:
-[irr_topics_sent_zeros_comp, VAR_estimate_topics_sent_zeros_comp, figure_topics_sent_short_comp, lower_irr_topics_sent_comp, upper_irr_topics_sent_comp, irr_topics_sent_mean_comp, var_opts_topics_sent_comp] = VARidentzeroshortrunrest_ose(daily_topics_comp, explan_vars_topics_sent_comp, varopt_topics_sent_comp, varmod_topics_sent_comp, 5, 0, 5,'/daily_PCA_oursentiment_OSE_new');
+[irr_topics_sent_zeros_comp, VAR_estimate_topics_sent_zeros_comp, figure_topics_sent_short_comp, lower_irr_topics_sent_comp, upper_irr_topics_sent_comp, irr_topics_sent_mean_comp, var_opts_topics_sent_comp] = VARidentzeroshortrunrest_ose(daily_topics_comp, explan_vars_topics_sent_comp, varopt_topics_sent_comp, varmod_topics_sent_comp, 5, 0, 5,'/daily_PCA_oursentiment_OSE');
 
 %% END
  

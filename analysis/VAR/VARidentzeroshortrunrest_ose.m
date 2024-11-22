@@ -107,6 +107,9 @@ function [irr_, VAR_, figures, inf_, sup_, bar_, var_opts, ses] = VARidentzerosh
         SwatheOpt = PlotSwatheOption;
         SwatheOpt.marker = '*';
         SwatheOpt.trans = 1;
+        SwatheOpt.alpha = 0.7;                 % Set transparency to 70%
+        SwatheOpt.linecol = [0, 0, 0];         % Black line
+        SwatheOpt.swathecol = [0.8, 0.8, 0.8]; % Light gray confidence band
         FigSize(16,14)
         plot(cumsum(IR{i}(:,3,1)),'LineWidth',2,'LineStyle','--','Color',cmap(1)); hold on
         PlotSwathe(cumsum(IR{i}(:,3,1)),[INF{i}(:,3,1) SUP{i}(:,3,1)], SwatheOpt); hold on
@@ -137,7 +140,8 @@ function [irr_, VAR_, figures, inf_, sup_, bar_, var_opts, ses] = VARidentzerosh
     path = pwd;   % mention your path
     
         if freqs == 0 
-           myfolder = '/plots/Ambrogio/daily' ;    % direction 
+           %myfolder = '/plots/Ambrogio/daily' ;    % direction
+           myfolder = '/plots/Ambrogio/daily_gray' ;    % in gray
            specfold = fold;
            folder = mkdir([path,filesep,myfolder, specfold]) ;
            path  = [path,filesep,myfolder,specfold];
