@@ -50,6 +50,6 @@ The code was run on a server equipped with the following specifications for opti
 Feel free to use the code provided in this repository for your research or projects. If you utilize this code, please cite the paper: Knoppe C., Okuneva M., & Zitti M. (2025). Salmon stock returns around market news. Marine Resource Economics, 40(2).
 
 ## Contact
-If you have any questions about this repository or the related research, please feel free to contact Clemens Knoppe [knoppe@economics.uni-kiel.de](mailto:knoppe@economics.uni-kiel.de), Mariia Okuneva [mokuneva@stat-econ.uni-kiel.de](mailto:mokuneva@stat-econ.uni-kiel.de), or Mikaella Zitti [mikaella.zitti@nmbu.no](mailto:mikaella.zitti@nmbu.no).
+If you have any questions about this repository or the related research, please feel free to contact Clemens Knoppe [knoppe@economics.uni-kiel.de](mailto:knoppe@economics.uni-kiel.de), Mariia Okuneva [miokuneva2@gmail.com](mailto:miokuneva2@gmail.com), or Mikaella Zitti [mikaella.zitti@nmbu.no](mailto:mikaella.zitti@nmbu.no).
 
 
